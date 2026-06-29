@@ -1,0 +1,21 @@
+办公自动化系统/
+  ├── .env                          # DeepSeek API Key，不要上传到 GitHub
+  ├── requirements.txt              # pip install 依赖清单
+  ├── yaoqiu.txt                    # 你的简历需求描述
+  │
+  ├── src/                          # 所有源代码
+  │   ├── tools/                    # 工具层（Step 1-2）
+  │   │   ├── excel_tools.py        # Excel 读写（底层 + @tool 包装）
+  │   │   ├── file_tools.py         # 文件操作（底层 + @tool 包装）
+  │   │   ├── email_tools.py        # 邮件发送（底层 + @tool 包装）
+  │   │   ├── date_tools.py         # 日期工具（底层 + @tool 包装）
+  │   │   └── __init__.py           # 汇集 ALL_TOOLS（7个工具）
+  │   ├── agent/                    # Agent 层（Step 3-4）
+  │   │   ├── single_agent.py       # 单轮 Agent（LLM + bind_tools）
+  │   │   └── graph_pipeline.py     # LangGraph 5节点管线
+  │   └── cli/                      # CLI 层（Step 5，还未完成）
+  │       └── __init__.py
+  │
+  ├── tests/                        # 19 个测试全部通过
+  ├── data/                         # 模拟数据（Step 6，还未生成）
+  └── output/                       # Agent 生成的产物
