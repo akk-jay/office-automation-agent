@@ -1,0 +1,242 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 780">
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="0.5"/>
+    </pattern>
+    <marker id="arrow-cyan" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#22d3ee"/>
+    </marker>
+    <marker id="arrow-emerald" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#34d399"/>
+    </marker>
+    <marker id="arrow-violet" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#a78bfa"/>
+    </marker>
+    <marker id="arrow-amber" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#fbbf24"/>
+    </marker>
+    <marker id="arrow-slate" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#94a3b8"/>
+    </marker>
+    <marker id="arrow-rose" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#fb7185"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#22c55e"/>
+    </marker>
+    <!-- Drop shadow filter -->
+    <filter id="shadow" x="-5%" y="-5%" width="115%" height="115%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap');
+    text { font-family: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif; }
+    .mono { font-family: 'JetBrains Mono', 'Cascadia Code', 'Consolas', monospace; }
+  </style>
+
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="#0f172a"/>
+  <rect width="100%" height="100%" fill="url(#grid)"/>
+
+  <!-- Title -->
+  <text x="600" y="36" fill="#f8fafc" font-size="20" font-weight="700" text-anchor="middle" letter-spacing="2">办公自动化 Agent 系统架构</text>
+  <text x="600" y="56" fill="#64748b" font-size="11" text-anchor="middle">基于 LangGraph + DeepSeek 的智能办公自动化系统</text>
+
+  <!-- ============================================================ -->
+  <!-- LEFT: 5-Layer Architecture -->
+  <!-- ============================================================ -->
+
+  <text x="48" y="88" fill="#94a3b8" font-size="12" font-weight="600" letter-spacing="1">🏗️ 分层架构</text>
+
+  <!-- Layer boundary -->
+  <rect x="40" y="100" width="530" height="560" rx="10" fill="none" stroke="#334155" stroke-width="1" stroke-dasharray="6,4"/>
+
+  <!-- ===== Layer 5: CLI Interaction ===== -->
+  <!-- Mask -->
+  <rect x="60" y="120" width="490" height="72" rx="8" fill="#0f172a"/>
+  <!-- Visual -->
+  <rect x="60" y="120" width="490" height="72" rx="8" fill="rgba(8,51,68,0.5)" stroke="#22d3ee" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="80" y="148" fill="#22d3ee" font-size="13" font-weight="700">🖥️ CLI 交互层</text>
+  <text x="80" y="168" fill="#94a3b8" font-size="10">rich 终端界面 · 自然语言输入 · 流式输出 &amp; 彩色渲染</text>
+  <text x="520" y="148" fill="#475569" font-size="10" text-anchor="end" class="mono">main.py / run.py</text>
+
+  <!-- Layer 5→4 down arrow -->
+  <line x1="305" y1="192" x2="305" y2="224" stroke="#22d3ee" stroke-width="1.5" marker-end="url(#arrow-cyan)"/>
+
+  <!-- ===== Layer 4: LangGraph Orchestration ===== -->
+  <rect x="60" y="228" width="490" height="72" rx="8" fill="#0f172a"/>
+  <rect x="60" y="228" width="490" height="72" rx="8" fill="rgba(6,78,59,0.5)" stroke="#34d399" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="80" y="256" fill="#34d399" font-size="13" font-weight="700">🔗 LangGraph 任务编排</text>
+  <text x="80" y="276" fill="#94a3b8" font-size="10">StateGraph · 意图解析 → 数据获取 → 分析 → 输出 → 推送 · 异常回退</text>
+  <text x="520" y="256" fill="#475569" font-size="10" text-anchor="end" class="mono">graph_pipeline.py</text>
+
+  <!-- Layer 5→4 bridging left to right pipeline -->
+  <text x="590" y="264" fill="#64748b" font-size="9" text-anchor="middle">━┓</text>
+
+  <!-- Layer 4→3 down arrow -->
+  <line x1="305" y1="300" x2="305" y2="332" stroke="#34d399" stroke-width="1.5" marker-end="url(#arrow-emerald)"/>
+
+  <!-- ===== Layer 3: Single Agent ===== -->
+  <rect x="60" y="336" width="490" height="72" rx="8" fill="#0f172a"/>
+  <rect x="60" y="336" width="490" height="72" rx="8" fill="rgba(76,29,149,0.45)" stroke="#a78bfa" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="80" y="364" fill="#a78bfa" font-size="13" font-weight="700">🤖 单轮 Agent (ReAct 循环)</text>
+  <text x="80" y="384" fill="#94a3b8" font-size="10">DeepSeek Chat · bind_tools · LLM 自动选择并调用工具 · ToolMessage 反馈</text>
+  <text x="520" y="364" fill="#475569" font-size="10" text-anchor="end" class="mono">single_agent.py</text>
+
+  <!-- Layer 3→2 down arrow -->
+  <line x1="305" y1="408" x2="305" y2="440" stroke="#a78bfa" stroke-width="1.5" marker-end="url(#arrow-violet)"/>
+
+  <!-- ===== Layer 2: Tool Wrapper ===== -->
+  <rect x="60" y="444" width="490" height="72" rx="8" fill="#0f172a"/>
+  <rect x="60" y="444" width="490" height="72" rx="8" fill="rgba(120,53,15,0.4)" stroke="#fbbf24" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="80" y="472" fill="#fbbf24" font-size="13" font-weight="700">🔧 LangChain Tool 封装</text>
+  <text x="80" y="492" fill="#94a3b8" font-size="10">@tool 装饰器 → JSON Schema → OpenAI Function Calling 格式</text>
+  <text x="520" y="472" fill="#475569" font-size="10" text-anchor="end" class="mono">ALL_TOOLS (7)</text>
+
+  <!-- Layer 2→1 down arrow -->
+  <line x1="305" y1="516" x2="305" y2="548" stroke="#fbbf24" stroke-width="1.5" marker-end="url(#arrow-amber)"/>
+
+  <!-- ===== Layer 1: Low-level Tools ===== -->
+  <rect x="60" y="552" width="490" height="90" rx="8" fill="#0f172a"/>
+  <rect x="60" y="552" width="490" height="90" rx="8" fill="rgba(30,41,59,0.6)" stroke="#94a3b8" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="80" y="580" fill="#94a3b8" font-size="13" font-weight="700">⚙️ 底层工具层</text>
+  <text x="80" y="600" fill="#64748b" font-size="10">纯 Python 实现每个工具的核心算法与 I/O</text>
+
+  <!-- Sub-tools -->
+  <rect x="80" y="612" width="130" height="22" rx="4" fill="rgba(59,130,246,0.2)" stroke="#60a5fa" stroke-width="0.8"/>
+  <text x="145" y="627" fill="#60a5fa" font-size="9" font-weight="500" text-anchor="middle">📊 openpyxl</text>
+
+  <rect x="220" y="612" width="100" height="22" rx="4" fill="rgba(59,130,246,0.2)" stroke="#60a5fa" stroke-width="0.8"/>
+  <text x="270" y="627" fill="#60a5fa" font-size="9" font-weight="500" text-anchor="middle">✉️ smtplib</text>
+
+  <rect x="330" y="612" width="110" height="22" rx="4" fill="rgba(59,130,246,0.2)" stroke="#60a5fa" stroke-width="0.8"/>
+  <text x="385" y="627" fill="#60a5fa" font-size="9" font-weight="500" text-anchor="middle">📁 os+shutil</text>
+
+  <rect x="450" y="612" height="22" width="80" rx="4" fill="rgba(59,130,246,0.2)" stroke="#60a5fa" stroke-width="0.8"/>
+  <text x="490" y="627" fill="#60a5fa" font-size="9" font-weight="500" text-anchor="middle">📅 datetime</text>
+
+  <text x="520" y="580" fill="#475569" font-size="10" text-anchor="end" class="mono">excel/email/file/date_tools.py</text>
+
+  <!-- ============================================================ -->
+  <!-- RIGHT: LangGraph Pipeline -->
+  <!-- ============================================================ -->
+
+  <text x="640" y="88" fill="#94a3b8" font-size="12" font-weight="600" letter-spacing="1">🔗 LangGraph 管线流程</text>
+
+  <!-- Pipeline boundary -->
+  <rect x="620" y="100" width="530" height="560" rx="10" fill="none" stroke="#334155" stroke-width="1" stroke-dasharray="6,4"/>
+
+  <!-- ===== Node 1: intent_parser ===== -->
+  <rect x="660" y="125" width="230" height="62" rx="8" fill="#0f172a"/>
+  <rect x="660" y="125" width="230" height="62" rx="8" fill="rgba(8,51,68,0.5)" stroke="#22d3ee" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="775" y="150" fill="#22d3ee" font-size="12" font-weight="700" text-anchor="middle">① intent_parser</text>
+  <text x="775" y="168" fill="#94a3b8" font-size="9" text-anchor="middle">LLM 意图解析 · 任务拆解</text>
+
+  <!-- Node 1 → Node 2 (success) -->
+  <path d="M 890 156 L 910 156 L 910 210 L 890 210" fill="none" stroke="#22c55e" stroke-width="1.8" marker-end="url(#arrow-green)"/>
+  <text x="914" y="185" fill="#22c55e" font-size="8" class="mono">ok</text>
+
+  <!-- Node 1 error fallback -->
+  <path d="M 820 187 L 820 205 L 710 205 L 710 225" fill="none" stroke="#fb7185" stroke-width="1.2" stroke-dasharray="5,3" marker-end="url(#arrow-rose)"/>
+  <rect x="740" y="199" width="30" height="14" rx="3" fill="rgba(136,19,55,0.5)" stroke="#fb7185" stroke-width="0.5"/>
+  <text x="755" y="209" fill="#fb7185" font-size="7" text-anchor="middle">异常</text>
+
+  <!-- Error sink marker -->
+  <rect x="680" y="226" width="60" height="18" rx="9" fill="rgba(136,19,55,0.3)" stroke="#fb7185" stroke-width="1"/>
+  <text x="710" y="239" fill="#fb7185" font-size="8" font-weight="600" text-anchor="middle">END</text>
+
+  <!-- ===== Node 2: data_fetcher ===== -->
+  <rect x="660" y="255" width="230" height="62" rx="8" fill="#0f172a"/>
+  <rect x="660" y="255" width="230" height="62" rx="8" fill="rgba(6,78,59,0.5)" stroke="#34d399" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="775" y="280" fill="#34d399" font-size="12" font-weight="700" text-anchor="middle">② data_fetcher</text>
+  <text x="775" y="298" fill="#94a3b8" font-size="9" text-anchor="middle">日期获取 · Excel 数据读取</text>
+
+  <!-- Node 2 → Node 3 (success) -->
+  <path d="M 890 286 L 910 286 L 910 340 L 890 340" fill="none" stroke="#22c55e" stroke-width="1.8" marker-end="url(#arrow-green)"/>
+  <text x="914" y="315" fill="#22c55e" font-size="8" class="mono">ok</text>
+
+  <!-- Node 2 error fallback -->
+  <path d="M 820 317 L 820 335 L 710 335 L 710 355" fill="none" stroke="#fb7185" stroke-width="1.2" stroke-dasharray="5,3" marker-end="url(#arrow-rose)"/>
+  <rect x="740" y="329" width="30" height="14" rx="3" fill="rgba(136,19,55,0.5)" stroke="#fb7185" stroke-width="0.5"/>
+  <text x="755" y="339" fill="#fb7185" font-size="7" text-anchor="middle">异常</text>
+
+  <rect x="680" y="356" width="60" height="18" rx="9" fill="rgba(136,19,55,0.3)" stroke="#fb7185" stroke-width="1"/>
+  <text x="710" y="369" fill="#fb7185" font-size="8" font-weight="600" text-anchor="middle">END</text>
+
+  <!-- ===== Node 3: analyzer ===== -->
+  <rect x="660" y="385" width="230" height="62" rx="8" fill="#0f172a"/>
+  <rect x="660" y="385" width="230" height="62" rx="8" fill="rgba(76,29,149,0.45)" stroke="#a78bfa" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="775" y="410" fill="#a78bfa" font-size="12" font-weight="700" text-anchor="middle">③ analyzer</text>
+  <text x="775" y="428" fill="#94a3b8" font-size="9" text-anchor="middle">LLM 数据分析 · 生成洞察</text>
+
+  <!-- Node 3 → Node 4 (success) -->
+  <path d="M 890 416 L 910 416 L 910 470 L 890 470" fill="none" stroke="#22c55e" stroke-width="1.8" marker-end="url(#arrow-green)"/>
+  <text x="914" y="445" fill="#22c55e" font-size="8" class="mono">ok</text>
+
+  <!-- Node 3 error fallback -->
+  <path d="M 820 447 L 820 465 L 710 465 L 710 485" fill="none" stroke="#fb7185" stroke-width="1.2" stroke-dasharray="5,3" marker-end="url(#arrow-rose)"/>
+  <rect x="740" y="459" width="30" height="14" rx="3" fill="rgba(136,19,55,0.5)" stroke="#fb7185" stroke-width="0.5"/>
+  <text x="755" y="469" fill="#fb7185" font-size="7" text-anchor="middle">异常</text>
+
+  <rect x="680" y="486" width="60" height="18" rx="9" fill="rgba(136,19,55,0.3)" stroke="#fb7185" stroke-width="1"/>
+  <text x="710" y="499" fill="#fb7185" font-size="8" font-weight="600" text-anchor="middle">END</text>
+
+  <!-- ===== Node 4: report_generator ===== -->
+  <rect x="660" y="515" width="230" height="62" rx="8" fill="#0f172a"/>
+  <rect x="660" y="515" width="230" height="62" rx="8" fill="rgba(120,53,15,0.4)" stroke="#fbbf24" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="775" y="540" fill="#fbbf24" font-size="12" font-weight="700" text-anchor="middle">④ report_generator</text>
+  <text x="775" y="558" fill="#94a3b8" font-size="9" text-anchor="middle">周报 Excel 生成</text>
+
+  <!-- Node 4 → Node 5 (success) -->
+  <path d="M 890 546 L 910 546 L 910 600 L 890 600" fill="none" stroke="#22c55e" stroke-width="1.8" marker-end="url(#arrow-green)"/>
+  <text x="914" y="575" fill="#22c55e" font-size="8" class="mono">ok</text>
+
+  <!-- Node 4 error fallback -->
+  <path d="M 820 577 L 820 595 L 710 595 L 710 615" fill="none" stroke="#fb7185" stroke-width="1.2" stroke-dasharray="5,3" marker-end="url(#arrow-rose)"/>
+  <rect x="740" y="589" width="30" height="14" rx="3" fill="rgba(136,19,55,0.5)" stroke="#fb7185" stroke-width="0.5"/>
+  <text x="755" y="599" fill="#fb7185" font-size="7" text-anchor="middle">异常</text>
+
+  <rect x="680" y="616" width="60" height="18" rx="9" fill="rgba(136,19,55,0.3)" stroke="#fb7185" stroke-width="1"/>
+  <text x="710" y="629" fill="#fb7185" font-size="8" font-weight="600" text-anchor="middle">END</text>
+
+  <!-- ===== Node 5: sender ===== -->
+  <rect x="660" y="645" width="230" height="62" rx="8" fill="#0f172a"/>
+  <rect x="660" y="645" width="230" height="62" rx="8" fill="rgba(30,41,59,0.6)" stroke="#94a3b8" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="775" y="670" fill="#94a3b8" font-size="12" font-weight="700" text-anchor="middle">⑤ sender</text>
+  <text x="775" y="688" fill="#64748b" font-size="9" text-anchor="middle">邮件发送 (dry_run 安全演示)</text>
+
+  <!-- Node 5 → END -->
+  <path d="M 890 676 L 940 676" fill="none" stroke="#22c55e" stroke-width="1.8" marker-end="url(#arrow-green)"/>
+  <rect x="950" y="666" width="60" height="22" rx="11" fill="rgba(34,197,94,0.2)" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="980" y="681" fill="#22c55e" font-size="10" font-weight="700" text-anchor="middle">✓ END</text>
+
+  <!-- Bridge annotation from left layers to right pipeline -->
+  <line x1="550" y1="264" x2="660" y2="156" stroke="#64748b" stroke-width="0.8" stroke-dasharray="4,4" stroke-opacity="0.4"/>
+  <line x1="550" y1="264" x2="660" y2="286" stroke="#64748b" stroke-width="0.8" stroke-dasharray="4,4" stroke-opacity="0.4"/>
+
+  <!-- Legend -->
+  <g transform="translate(40, 680)">
+    <rect x="0" y="0" width="560" height="44" rx="6" fill="rgba(30,41,59,0.4)" stroke="#334155" stroke-width="0.8"/>
+    <text x="280" y="14" fill="#64748b" font-size="9" font-weight="500" text-anchor="middle">图例</text>
+
+    <line x1="20" y1="30" x2="50" y2="30" stroke="#22c55e" stroke-width="1.8"/>
+    <text x="56" y="34" fill="#94a3b8" font-size="8">正常流转</text>
+
+    <line x1="120" y1="30" x2="150" y2="30" stroke="#fb7185" stroke-width="1.2" stroke-dasharray="5,3"/>
+    <text x="156" y="34" fill="#94a3b8" font-size="8">异常降级 END</text>
+
+    <rect x="260" y="22" width="16" height="16" rx="3" fill="rgba(59,130,246,0.2)" stroke="#60a5fa" stroke-width="0.8"/>
+    <text x="282" y="34" fill="#94a3b8" font-size="8">底层工具</text>
+
+    <rect x="350" y="22" width="16" height="16" rx="3" fill="rgba(34,197,94,0.2)" stroke="#22c55e" stroke-width="0.8"/>
+    <text x="372" y="34" fill="#94a3b8" font-size="8">正常终止</text>
+
+    <rect x="430" y="22" width="16" height="16" rx="3" fill="rgba(136,19,55,0.3)" stroke="#fb7185" stroke-width="0.8"/>
+    <text x="452" y="34" fill="#94a3b8" font-size="8">异常终止</text>
+  </g>
+
+  <!-- Footer -->
+  <text x="600" y="770" fill="#475569" font-size="8" text-anchor="middle">akk-jay/office-automation-agent · DeepSeek + LangGraph + LangChain · 19 tests passed</text>
+</svg>
